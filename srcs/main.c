@@ -6,7 +6,7 @@
 /*   By: lsaumon <lsaumon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 15:58:27 by lsaumon           #+#    #+#             */
-/*   Updated: 2024/07/06 20:00:36 by lsaumon          ###   ########.fr       */
+/*   Updated: 2024/07/12 20:41:46 by lsaumon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,11 @@ int main(int argc, char **argv)
         return (1);
     if (check_all_2(&game) != 0)
         return (1);
-    printf("Map width: %d\n", game.width);
-    printf("Map height: %d\n", game.height);
-    printf("Map content:\n");
-    print_map(NULL, &game);
-    free_map_main(&game);
+    init_mlx(&game);
+    put_texture_map(&game);
+    mlx_key_hook(game.mlx, key_hook, &game);
+    mlx_loop(game.mlx);
+    free_game(&game);
     return (0);
 }
+//mlx_terminate();

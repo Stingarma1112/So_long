@@ -6,7 +6,7 @@
 #    By: lsaumon <lsaumon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/03 15:57:08 by lsaumon           #+#    #+#              #
-#    Updated: 2024/07/06 04:25:36 by lsaumon          ###   ########.fr        #
+#    Updated: 2024/07/11 16:20:41 by lsaumon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS		:=  $(addprefix $(SRC)/, main.c) \
 				$(addprefix $(SRC)/, init.c) \
 				$(addprefix $(SRC)/, flood_fill.c) \
 				$(addprefix $(SRC)/, so_utils.c) \
+				$(addprefix $(SRC)/, mlx_put_img.c) \
+				$(addprefix $(SRC)/, mlx_cmd.c) \
 				
 OBJ_DIR		:= .objs
 OBJS		:= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
