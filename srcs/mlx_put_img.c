@@ -6,7 +6,7 @@
 /*   By: lsaumon <lsaumon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:35:41 by lsaumon           #+#    #+#             */
-/*   Updated: 2024/07/12 20:39:29 by lsaumon          ###   ########.fr       */
+/*   Updated: 2024/07/12 23:19:50 by lsaumon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	put_item(t_game *game)
 {
 	static int	loaded_img;
 	static int	instance;
-	
+
 	if (loaded_img == 0)
 	{
 		game->texture = mlx_load_png("./asset/item.png");
@@ -24,7 +24,8 @@ void	put_item(t_game *game)
 		mlx_delete_texture(game->texture);
 		loaded_img = 1;
 	}
-	mlx_image_to_window(game->mlx, game->img_item, (game->x * PIXEL), (game->y * PIXEL));
+	mlx_image_to_window(game->mlx, game->img_item, (game->x * PIXEL), (game->y
+			* PIXEL));
 	game->img_item->instances[instance++].z = 1;
 	if (!game->img_item)
 	{
@@ -37,7 +38,7 @@ void	put_item(t_game *game)
 void	put_floor(t_game *game)
 {
 	static int	loaded_img;
-	
+
 	if (loaded_img == 0)
 	{
 		game->texture = mlx_load_png("./asset/floor.png");
@@ -45,7 +46,8 @@ void	put_floor(t_game *game)
 		mlx_delete_texture(game->texture);
 		loaded_img = 1;
 	}
-	mlx_image_to_window(game->mlx, game->img_floor, (game->x * PIXEL), (game->y * PIXEL));
+	mlx_image_to_window(game->mlx, game->img_floor, (game->x * PIXEL), (game->y
+			* PIXEL));
 	game->img_floor->instances[game->count_instance_floor++].z = 0;
 	if (!game->img_floor)
 	{
@@ -59,7 +61,7 @@ void	put_wall(t_game *game)
 {
 	static int	loaded_img;
 	static int	instance;
-	
+
 	if (loaded_img == 0)
 	{
 		game->texture = mlx_load_png("./asset/wall.png");
@@ -67,7 +69,8 @@ void	put_wall(t_game *game)
 		mlx_delete_texture(game->texture);
 		loaded_img = 1;
 	}
-	mlx_image_to_window(game->mlx, game->img_wall, (game->x * PIXEL), (game->y * PIXEL));
+	mlx_image_to_window(game->mlx, game->img_wall, (game->x * PIXEL), (game->y
+			* PIXEL));
 	game->img_wall->instances[instance++].z = 1;
 	if (!game->img_wall)
 	{
@@ -81,7 +84,7 @@ void	put_exit(t_game *game)
 {
 	static int	loaded_img;
 	static int	instance;
-	
+
 	if (loaded_img == 0)
 	{
 		game->texture = mlx_load_png("./asset/exit.png");
@@ -89,7 +92,8 @@ void	put_exit(t_game *game)
 		mlx_delete_texture(game->texture);
 		loaded_img = 1;
 	}
-	mlx_image_to_window(game->mlx, game->img_exit, (game->x * PIXEL), (game->y * PIXEL));
+	mlx_image_to_window(game->mlx, game->img_exit, (game->x * PIXEL), (game->y
+			* PIXEL));
 	game->img_exit->instances[instance++].z = 1;
 	if (!game->img_exit)
 	{
@@ -103,7 +107,7 @@ void	put_player(t_game *game)
 {
 	static int	loaded_img;
 	static int	instance;
-	
+
 	if (loaded_img == 0)
 	{
 		game->texture = mlx_load_png("./asset/player.png");
@@ -111,7 +115,8 @@ void	put_player(t_game *game)
 		mlx_delete_texture(game->texture);
 		loaded_img = 1;
 	}
-	mlx_image_to_window(game->mlx, game->img_player, (game->x * PIXEL), (game->y * PIXEL));
+	mlx_image_to_window(game->mlx, game->img_player, (game->x * PIXEL), (game->y
+			* PIXEL));
 	game->img_player->instances[instance++].z = 5;
 	if (!game->img_player)
 	{

@@ -6,7 +6,7 @@
 /*   By: lsaumon <lsaumon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:21:21 by lsaumon           #+#    #+#             */
-/*   Updated: 2024/07/12 20:56:51 by lsaumon          ###   ########.fr       */
+/*   Updated: 2024/07/12 23:13:05 by lsaumon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	put_texture_map(t_game *game)
 void	key_hook(mlx_key_data_t keydata, void *param)
 {
 	t_game	*game;
-	
+
 	game = (t_game *)param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
@@ -68,10 +68,12 @@ int	is_valid_move(t_game *game, int nx, int ny)
 		game->map[ny][nx] = '0';
 		put_floor_after_collec(game, nx, ny);
 	}
-	if (game->map[ny][nx] == 'E' && game->item_collected == game->collectible_count)
+	if (game->map[ny][nx] == 'E'
+		&& game->item_collected == game->collectible_count)
 	{
 		ft_printf("You win\n");
-		ft_printf("You collected %d/%d items\n", game->item_collected, game->collectible_count);
+		ft_printf("You collected %d/%d items\n", game->item_collected,
+			game->collectible_count);
 		ft_printf("You made %d moves\n", i);
 		free_game(game);
 		exit(EXIT_SUCCESS);

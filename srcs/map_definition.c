@@ -6,17 +6,17 @@
 /*   By: lsaumon <lsaumon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:12:47 by lsaumon           #+#    #+#             */
-/*   Updated: 2024/07/05 04:44:05 by lsaumon          ###   ########.fr       */
+/*   Updated: 2024/07/12 23:13:09 by lsaumon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static int map_height(char *filename, t_game *game)
+static int	map_height(char *filename, t_game *game)
 {
 	int		fd;
 	char	*line;
-	
+
 	fd = open(filename, O_RDONLY);
 	line = get_next_line(fd);
 	if (line == NULL)
@@ -41,18 +41,18 @@ static int map_height(char *filename, t_game *game)
 	return (1);
 }
 
-static void erase_n(char *str)
+static void	erase_n(char *str)
 {
-    int i = 0;
+	int	i;
 
-    while (str[i])
-    {
-        if (str[i] == '\n')
-            str[i] = '\0';
-        i++;
-    }
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '\n')
+			str[i] = '\0';
+		i++;
+	}
 }
-
 
 static int	pre_read(int fd, t_game *game)
 {
@@ -79,9 +79,9 @@ static int	pre_read(int fd, t_game *game)
 	return (1);
 }
 
-int read_map(char *filename, t_game *game)
+int	read_map(char *filename, t_game *game)
 {
-	int		fd;
+	int	fd;
 
 	if (!map_height(filename, game))
 		return (0);

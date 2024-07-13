@@ -6,7 +6,7 @@
 /*   By: lsaumon <lsaumon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 03:44:09 by lsaumon           #+#    #+#             */
-/*   Updated: 2024/07/12 21:00:07 by lsaumon          ###   ########.fr       */
+/*   Updated: 2024/07/12 23:13:15 by lsaumon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	init_struct(t_game *game)
 
 void	init_mlx(t_game *game)
 {
-	game->mlx = mlx_init((game->width * PIXEL), (game->height * PIXEL), "So_long", true);
+	game->mlx = mlx_init((game->width * PIXEL), (game->height * PIXEL),
+			"So_long", true);
 	if (!game->mlx)
 	{
 		perror("Error in initializing mlx\n");
@@ -43,7 +44,7 @@ void	free_game(t_game *game)
 {
 	if (game->img_player)
 		mlx_delete_image(game->mlx, game->img_player);
-	if (game->img_exit)	
+	if (game->img_exit)
 		mlx_delete_image(game->mlx, game->img_exit);
 	if (game->img_wall)
 		mlx_delete_image(game->mlx, game->img_wall);

@@ -6,7 +6,7 @@
 /*   By: lsaumon <lsaumon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 00:04:22 by lsaumon           #+#    #+#             */
-/*   Updated: 2024/07/06 19:30:25 by lsaumon          ###   ########.fr       */
+/*   Updated: 2024/07/12 23:12:45 by lsaumon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_line(t_game *game)
 {
-	int		i;
+	int	i;
 	int	stock;
 
 	i = 0;
@@ -34,7 +34,6 @@ int	check_line(t_game *game)
 
 static int	count_pec(t_game *game)
 {
-	
 	game->player_count = 0;
 	game->exit_count = 0;
 	game->collectible_count = 0;
@@ -64,7 +63,6 @@ static int	count_pec(t_game *game)
 int	check_car(t_game *game)
 {
 	count_pec(game);
-	
 	if (game->player_count != 1)
 	{
 		perror("Error invalid number of player\n");
@@ -86,13 +84,12 @@ int	check_car(t_game *game)
 int	validate_char(t_game *game)
 {
 	game->y = 0;
-	
 	while (game->y < game->height)
 	{
 		game->x = 0;
 		while (game->x < game->width)
 		{
-			if (game->map[game->y][game->x] != 'P' 
+			if (game->map[game->y][game->x] != 'P'
 				&& game->map[game->y][game->x] != 'E'
 				&& game->map[game->y][game->x] != 'C'
 				&& game->map[game->y][game->x] != '1'
@@ -113,8 +110,8 @@ int	validate_perimeter(t_game *game)
 	game->x = 0;
 	while (game->x < game->width)
 	{
-		if (game->map[0][game->x] != '1' ||
-			game->map[game->height - 1][game->x] != '1')
+		if (game->map[0][game->x] != '1' || game->map[game->height
+			- 1][game->x] != '1')
 		{
 			perror("Error with the perimeter of the map\n");
 			return (0);
@@ -124,8 +121,8 @@ int	validate_perimeter(t_game *game)
 	game->x = 0;
 	while (game->x < game->height)
 	{
-		if (game->map[game->x][0] != '1' ||
-			game->map[game->x][game->width - 1] != '1')
+		if (game->map[game->x][0] != '1' || game->map[game->x][game->width
+			- 1] != '1')
 		{
 			perror("Error with the perimeter of the map\n");
 			return (0);
